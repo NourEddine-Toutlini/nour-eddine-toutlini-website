@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="text-center mb-4">
+            <img src="{{ url_for('static', filename='images/' + data.personal_info.profile_image) }}" 
+                 alt="Profile Photo" class="img-fluid rounded-circle mb-3" style="width: 250px; height: 250px; object-fit: cover;">
+            <h2>{{ data.personal_info.name }}</h2>
+            <p class="text-muted">{{ data.personal_info.title }}</p>
+            <div class="social-links">
+                <a href="{{ data.personal_info.links.github }}" target="_blank" class="btn btn-outline-dark btn-sm me-2 mb-2">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="{{ data.personal_info.links.google_scholar }}" target="_blank" class="btn btn-outline-primary btn-sm me-2 mb-2">
+                    <i class="fas fa-graduation-cap"></i> Scholar
+                </a>
+                <a href="{{ data.personal_info.links.researchgate }}" target="_blank" class="btn btn-outline-success btn-sm me-2 mb-2">
+                    <i class="fab fa-researchgate"></i> ResearchGate
+                </a>
+                <a href="{{ data.personal_info.links.linkedin }}" target="_blank" class="btn btn-outline-info btn-sm me-2 mb-2">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="{{ data.personal_info.links.orcid }}" target="_blank" class="btn btn-outline-warning btn-sm mb-2">
+                    <i class="fab fa-orcid"></i> ORCID
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h3>About Me</h3>
+        <p>{{ data.personal_info.bio }}</p>
+        
+        <h4>Contact Information</h4>
+        <ul class="list-unstyled">
+            <li><i class="fas fa-envelope"></i> {{ data.personal_info.email }}</li>
+            <li><i class="fas fa-phone"></i> {{ data.personal_info.phone }}</li>
+            <li><i class="fas fa-map-marker-alt"></i> {{ data.personal_info.location }}</li>
+            <li><i class="fas fa-university"></i> {{ data.personal_info.affiliation }}</li>
+        </ul>
+
+        <h4>Affiliated Institutions</h4>
+        <div class="institution-logos">
+            <div class="row">
+                {% for institution in data.personal_info.institution_logos %}
+                <div class="col-6 col-md-3 mb-4 text-center">
+                    <div class="institution-card">
+                        <img src="{{ url_for('static', filename='images/' + institution.logo) }}" 
+                            alt="{{ institution.name }}" 
+                            class="institution-logo img-fluid mb-2"
+                            title="{{ institution.name }}">
+                        <div class="institution-info">
+                            <small class="institution-name d-block text-muted">{{ institution.name }}</small>
+                            <small class="institution-period d-block text-primary fw-bold">{{ institution.period }}</small>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

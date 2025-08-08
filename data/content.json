@@ -1,0 +1,148 @@
+{
+  "personal_info": {
+    "name": "Nour-Eddine Toutlini",
+    "title": "PhD Candidate in Applied Mathematics & Mechanical Engineering",
+    "affiliation": "UM6P - University Mohammed VI Polytechnic & École de technologie supérieure",
+    "location": "Ben Guerir, Morocco",
+    "email": "nour-eddine.toutlini.1@ens.etsmtl.ca",
+    "phone": "+212 750 218 047",
+    "profile_image": "profile.jpg",
+    "bio": "I am a PhD candidate working on developing physics-based numerical models for hydrodynamic and transport of fertilizers in soils, with applications in sustainable agriculture.",
+    "links": {
+      "researchgate": "https://www.researchgate.net/profile/Nour-Eddine-Toutlini",
+      "google_scholar": "https://scholar.google.com/citations?user=FZMy_IEAAAAJ",
+      "github": "https://github.com/NourEddine-Toutlini",
+      "linkedin": "https://www.linkedin.com/in/noureddine-toutlini-271787270/",
+      "orcid": "https://orcid.org/0009-0003-5392-3562"
+    },
+    "institution_logos": [
+      {
+        "name": "École de technologie supérieure",
+        "logo": "ets_logo.png",
+        "period": "2023 - Present"
+      },
+      {
+        "name": "University Mohammed VI Polytechnic",
+        "logo": "um6p_logo.png",
+        "period": "2022 - Present"
+      },
+      {
+        "name": "Université Sorbonne Paris Nord",
+        "logo": "sorbonne_logo.jpg",
+        "period": "2021 - 2022"
+      },
+      {
+        "name": "Faculté des Sciences Fès",
+        "logo": "fes_logo.png",
+        "period": "2020 - 2022"
+      }
+    ]
+  },
+  "research_interests": [
+    "Flows in porous media",
+    "Coupled transport phenomena in heterogeneous unsaturated soils",
+    "Hydrological modeling",
+    "Numerical methods",
+    "Finite element methods",
+    "Physics-informed neural networks (PINNs)",
+    "GPU implementation and scientific computing"
+  ],
+  "projects": [
+    {
+      "title": "PhD in Cotutelle",
+      "institutions": ["École de technologie supérieure, Montreal", "University Mohammed VI Polytechnic, Morocco"],
+      "period": "2022-Present",
+      "description": "Development of physics-based numerical models for the hydrodynamic and transport of fertilizers in soils, validation of the models, and proposition of solutions to improve the use of fertilizers in agriculture"
+    },
+    {
+      "title": "Master in Cotutelle",
+      "institutions": ["Université Sorbonne Paris Nord", "Faculté des Sciences, Fès"],
+      "period": "2020-2022",
+      "description": "Applied Mathematics and Data Science"
+    }
+  ],
+  "publications": [
+    {
+      "title": "A semi-implicit second-order temporal scheme for solving the pressure head-based form of Richards' and advection-dispersion equations",
+      "authors": "Toutlini, N., Beljadid, A., Soulaïmani, A.",
+      "journal": "Computers & Mathematics with Applications",
+      "year": "2025",
+      "status": "Published",
+      "doi": "https://doi.org/10.1016/j.camwa.2025.03.011"
+    },
+    {
+      "title": "JAX-WSPM: A GPU-accelerated parallel framework based on the JAX library for modeling water flow and solute transport in unsaturated porous media using an implicit finite element method",
+      "authors": "Toutlini, N., Soulaïmani, A., Beljadid, A.",
+      "journal": "Computer Physics Communications",
+      "year": "2025",
+      "status": "Revised and resubmitted"
+    },
+    {
+      "title": "A semi‑implicit finite element method for modeling fertilizers transport through soils with root water and nutrients uptake",
+      "authors": "Toutlini, N., Beljadid, A., Soulaïmani, A.",
+      "journal": "Mathematics and Computers in Simulation",
+      "year": "2025",
+      "status": "Under review"
+    }
+  ],
+  "talks": [
+    {
+      "title": "A semi‑implicit finite element technique for the advection‑diffusion‑reaction model of fertilizer transport in soil",
+      "event": "SIAM Conference on Applied and Computational Discrete Algorithms (ACDA25)",
+      "location": "Montréal, Quebec, Canada",
+      "date": "July 30--August 1, 2025",
+      "type": "Speaker"
+    },
+    {
+      "title": "A predictor-corrector second-order time-stepping scheme for solving water flow and solute transport in unsaturated porous media",
+      "event": "World Congress on Computational Mechanics (WCCM2024)",
+      "location": "Vancouver, BC, Canada",
+      "date": "July 21--26, 2024",
+      "type": "Presentation"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Research Dissemination Fellowship",
+      "organization": "École de technologie supérieure",
+      "year": "2025"
+    },
+    {
+      "title": "NSERC Fellowship",
+      "organization": "École de technologie supérieure",
+      "year": "2023-Present"
+    },
+    {
+      "title": "CACSE Travel Award",
+      "organization": "Canadian Association for Computational Science and Engineering - WCCM-PANACM Conference, Vancouver, Canada",
+      "year": "2024"
+    },
+    {
+      "title": "UM6P/OCP Group Fellowship",
+      "organization": "University Mohammed VI Polytechnic",
+      "year": "2022-Present"
+    }
+  ],
+
+  "simulations": [
+    {
+      "title": "JAX-WSPM Framework",
+      "description": "GPU-accelerated parallel framework for modeling water flow and solute transport in unsaturated porous media, including fertilizer transport (potassium, phosphorous, and nitrogen species)",
+      "technologies": ["Python", "JAX", "CUDA", "Finite Element Method", "GPU Computing"],
+      "github_link": "https://github.com/NourEddine-Toutlini/JAX-WSPM",
+      "logo": "JAX-WSPM-logo.png"
+    }
+  ],
+  "simulation_demos": [
+    {
+      "title": "3D Water Infiltration",
+      "description": "Simulation of water content (θ) evolution in 3D soil during infiltration",
+      "gif": "theta_movie.gif"
+    },
+    {
+      "title": "2D Nitrogen Transport",
+      "description": "Nitrogen transport simulation in 2D porous media",
+      "gif": "nitrogen-anim.gif"
+    }
+  ]
+}

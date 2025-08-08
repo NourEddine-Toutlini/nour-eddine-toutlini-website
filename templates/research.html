@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Research - Nour-Eddine Toutlini{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Research</h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Research Interests</h3>
+                <div class="research-item">
+                    {% for interest in data.research_interests %}
+                    <span class="badge bg-primary me-2 mb-2">{{ interest }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3>Current Focus</h3>
+                <div class="research-item">
+                    <p>My research focuses on developing advanced numerical methods for modeling complex physical phenomena in porous media, with particular emphasis on sustainable agriculture applications.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="mt-5">Current Projects</h3>
+        {% for project in data.projects %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ project.period }}</h6>
+                <p class="card-text">{{ project.description }}</p>
+                <div class="institutions">
+                    {% for institution in project.institutions %}
+                    <span class="badge bg-secondary me-2">{{ institution }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <h3 class="mt-5">Research Methodology</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-calculator fa-3x text-primary mb-3"></i>
+                        <h5>Numerical Methods</h5>
+                        <p>Development of advanced finite element methods and time-stepping schemes</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-microchip fa-3x text-success mb-3"></i>
+                        <h5>GPU Computing</h5>
+                        <p>High-performance computing using JAX and CUDA for parallel simulations</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-brain fa-3x text-warning mb-3"></i>
+                        <h5>Machine Learning</h5>
+                        <p>Physics-informed neural networks and deep neural operators</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

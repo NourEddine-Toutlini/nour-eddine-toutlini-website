@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Publications - Nour-Eddine Toutlini{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Publications</h1>
+        
+        <div class="mb-4">
+            <h4>Journal Articles</h4>
+            {% for pub in data.publications %}
+            <div class="publication-item">
+                <h5>{{ pub.title }}</h5>
+                <p class="text-muted mb-2"><strong>Authors:</strong> {{ pub.authors }}</p>
+                <p class="mb-2">
+                    <span class="badge bg-info">{{ pub.journal }}</span>
+                    <span class="badge bg-secondary">{{ pub.year }}</span>
+                    {% if pub.status == "Published" %}
+                    <span class="badge bg-success">Published</span>
+                    {% else %}
+                    <span class="badge bg-warning">{{ pub.status }}</span>
+                    {% endif %}
+                </p>
+                {% if pub.doi %}
+                <a href="{{ pub.doi }}" target="_blank" class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-external-link-alt"></i> View Publication
+                </a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="mb-4">
+            <h4>Conference Proceedings</h4>
+            <div class="publication-item">
+                <h5>A predictor-corrector second-order time-stepping scheme for solving water flow and solute transport in unsaturated porous media</h5>
+                <p class="text-muted mb-2"><strong>Authors:</strong> Toutlini, N., Kamil, H., Soulaïmani, A., Beljadid, A.</p>
+                <p class="mb-2">
+                    <span class="badge bg-info">World Congress on Computational Mechanics (WCCM2024)</span>
+                    <span class="badge bg-secondary">2024</span>
+                    <span class="badge bg-success">Published</span>
+                </p>
+                <a href="https://www.scipedia.com/public/Toutlini_et_al_2024a" target="_blank" class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-external-link-alt"></i> View Proceedings
+                </a>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5>Publications</h5>
+                        <h2 class="text-primary">{{ data.publications|length + 1 }}</h2>
+                        <p class="text-muted">Total Publications</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5>Research Experience</h5>
+                        <h2 class="text-success">2+</h2>
+                        <p class="text-muted">Years of Research</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

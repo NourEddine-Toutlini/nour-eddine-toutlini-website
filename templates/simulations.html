@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+
+{% block title %}Simulations & Code - Nour-Eddine Toutlini{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Simulations & Code</h1>
+        <p class="lead">Throughout my PhD research, I have developed several computational frameworks and codes for water flow and solute transport in porous media.</p>
+        
+        <!-- Main Description -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="research-overview p-4 mb-4">
+                    <h3>Computational Development</h3>
+                    <p>During my research, I have developed comprehensive codes for modeling water flow and solute transport in porous media, including fertilizer transport such as <strong>potassium, phosphorous, and nitrogen</strong> (urea, ammonium, and nitrate) <strong>with root water and nutrient uptake and other processes like hydrolysis, nitrification, denitrification which are biochemical reactions, and also evapotranspiration using implicit and semi-implicit finite element methods</strong>. My work spans from simple sequential codes to sophisticated parallel implementations:</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-code text-primary me-2"></i>Sequential Codes</h5>
+                            <ul>
+                                <li><strong>FreeFem++</strong> </li>
+                                <li><strong>MATLAB</strong> </li>
+                                <li><strong>Python</strong> </li>
+                                <li><strong>Fortran</strong> </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-microchip text-success me-2"></i>Parallel & GPU Codes</h5>
+                            <ul>
+                                <li><strong>CUDA Fortran</strong> GPU acceleration</li>
+                                <li><strong>JAX Python</strong> parallel computing</li>
+                                <li><strong>High-performance</strong> implementations</li>
+                                <li><strong>Scalable algorithms</strong> for large systems</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <h5><i class="fas fa-cogs text-warning me-2"></i>Key Physical & Biochemical Processes</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li><strong>Water flow</strong> in unsaturated porous media</li>
+                                        <li><strong>Solute transport</strong> with advection-dispersion</li>
+                                        <li><strong>Root water and nutrient uptake</strong></li>
+                                        <li><strong>Evapotranspiration</strong> processes</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li><strong>Hydrolysis</strong> of organic compounds</li>
+                                        <li><strong>Nitrification</strong> (NH₄⁺ → NO₃⁻)</li>
+                                        <li><strong>Denitrification</strong> biochemical reactions</li>
+                                        <li><strong>Coupled transport phenomena</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JAX-WSPM Framework -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h3>Featured Framework</h3>
+                <div class="card framework-card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 text-center">
+                                <img src="{{ url_for('static', filename='images/' + data.simulations[0].logo) }}" 
+                                     alt="JAX-WSPM Logo" 
+                                     class="framework-logo img-fluid mb-3">
+                            </div>
+                            <div class="col-md-9">
+                                <h4 class="card-title">{{ data.simulations[0].title }}</h4>
+                                <p class="card-text">{{ data.simulations[0].description }}</p>
+                                
+                                <div class="framework-features mb-3">
+                                    <h6>Key Features:</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul class="feature-list">
+                                                <li>Implicit & semi-implicit time schemes</li>
+                                                <li>Finite element spatial discretization</li>
+                                                <li>GPU acceleration with JAX</li>
+                                                <li>Parallel computing support</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul class="feature-list">
+                                                <li>Coupled flow and transport</li>
+                                                <li>Biochemical reaction modeling</li>
+                                                <li>Root uptake mechanisms</li>
+                                                <li>Evapotranspiration coupling</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="technologies mb-3">
+                                    <h6>Technologies:</h6>
+                                    {% for tech in data.simulations[0].technologies %}
+                                    <span class="badge bg-primary me-1 mb-1">{{ tech }}</span>
+                                    {% endfor %}
+                                </div>
+                                
+                                <div class="d-flex gap-2">
+                                    <a href="{{ data.simulations[0].github_link }}" target="_blank" class="btn btn-dark">
+                                        <i class="fab fa-github"></i> View on GitHub
+                                    </a>
+                                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#demoModal">
+                                        <i class="fas fa-play"></i> View Simulations
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simulation Demos -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h3>Simulation Results</h3>
+                <p class="text-muted mb-4">Interactive demonstrations of water flow and nutrient transport simulations in porous media</p>
+                <div class="row">
+                    {% for demo in data.simulation_demos %}
+                    <div class="col-md-6 mb-4">
+                        <div class="demo-card">
+                            <div class="card-body text-center">
+                                <h5>{{ demo.title }}</h5>
+                                <p class="text-muted">{{ demo.description }}</p>
+                                <div class="gif-container">
+                                    <img src="{{ url_for('static', filename='images/' + demo.gif) }}" 
+                                         alt="{{ demo.title }}" 
+                                         class="simulation-gif img-fluid rounded">
+                                </div>
+                                <button class="btn btn-outline-info btn-sm mt-2" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#demo{{ loop.index }}Modal">
+                                    <i class="fas fa-expand"></i> View Larger
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Capabilities -->
+        <div class="row">
+            <div class="col-12">
+                <h3>Technical Capabilities</h3>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-tint fa-3x text-primary mb-3"></i>
+                                <h5>Water Flow</h5>
+                                <p>Richards equation, unsaturated flow, infiltration processes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-seedling fa-3x text-success mb-3"></i>
+                                <h5>Nutrient Transport</h5>
+                                <p>Fertilizer transport: N, P, K species with biochemical reactions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-leaf fa-3x text-warning mb-3"></i>
+                                <h5>Root Uptake</h5>
+                                <p>Root water and nutrient uptake with evapotranspiration</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-rocket fa-3x text-danger mb-3"></i>
+                                <h5>High Performance</h5>
+                                <p>GPU acceleration, parallel computing, scalable algorithms</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Demo Modal -->
+<div class="modal fade" id="demoModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">JAX-WSPM Simulation Gallery</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    {% for demo in data.simulation_demos %}
+                    <div class="col-md-6 mb-4">
+                        <h6>{{ demo.title }}</h6>
+                        <img src="{{ url_for('static', filename='images/' + demo.gif) }}" 
+                             alt="{{ demo.title }}" 
+                             class="img-fluid rounded border">
+                        <p class="text-muted mt-2">{{ demo.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="{{ data.simulations[0].github_link }}" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-github"></i> View Source Code
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Individual Demo Modals -->
+{% for demo in data.simulation_demos %}
+<div class="modal fade" id="demo{{ loop.index }}Modal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ demo.title }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="{{ url_for('static', filename='images/' + demo.gif) }}" 
+                     alt="{{ demo.title }}" 
+                     class="img-fluid rounded">
+                <p class="text-muted mt-3">{{ demo.description }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

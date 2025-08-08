@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}Talks & Presentations - Nour-Eddine Toutlini{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Talks & Presentations</h1>
+        
+        {% for talk in data.talks %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h5 class="card-title">{{ talk.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ talk.event }}</h6>
+                        <p class="card-text">
+                            <i class="fas fa-map-marker-alt"></i> {{ talk.location }}<br>
+                            <i class="fas fa-calendar"></i> {{ talk.date }}
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        {% if talk.type == "Speaker" %}
+                        <span class="badge bg-success mb-2">Speaker</span>
+                        {% else %}
+                        <span class="badge bg-primary mb-2">{{ talk.type }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h5 class="card-title">Modeling of fertilizer transport in soil under subsurface drip irrigation</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">International Conference on Computational Engineering and Artificial Intelligence (I2CEAI 2024)</h6>
+                        <p class="card-text">
+                            <i class="fas fa-map-marker-alt"></i> Khouribga, Morocco<br>
+                            <i class="fas fa-calendar"></i> 2024
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <span class="badge bg-primary mb-2">Presentation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h5 class="card-title">Numerical modeling of water flow and fertilizer transport in unsaturated porous media</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">UM6P Doctoral Days</h6>
+                        <p class="card-text">
+                            <i class="fas fa-map-marker-alt"></i> Ben Guerir, Morocco<br>
+                            <i class="fas fa-calendar"></i> 3rd Edition, 2024
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <span class="badge bg-primary mb-2">Presentation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-microphone fa-3x text-primary mb-3"></i>
+                        <h5>Total Presentations</h5>
+                        <h2 class="text-primary">{{ data.talks|length + 2 }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-globe fa-3x text-success mb-3"></i>
+                        <h5>International Conferences</h5>
+                        <h2 class="text-success">3</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

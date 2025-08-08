@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}CV - Nour-Eddine Toutlini{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Curriculum Vitae</h1>
+            <a href="{{ url_for('download_file', filename='cv.pdf') }}" class="btn btn-primary">
+                <i class="fas fa-download"></i> Download PDF
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Education</h3>
+                <div class="timeline">
+                    <div class="timeline-item mb-4">
+                        <h5>Doctorate in Joint Program (2022-Present)</h5>
+                        <p class="text-muted">Mechanical Engineering — École de technologie supérieure, Montreal, Canada</p>
+                        <p class="text-muted">Applied Mathematics — University Mohammed VI Polytechnic, Morocco</p>
+                        <p><strong>Dissertation:</strong> Development of physics-based numerical models for the hydrodynamic and transport of fertilizers in soils, validation of the models, and proposition of solutions to improve the use of fertilizers in agriculture</p>
+                    </div>
+                    
+                    <div class="timeline-item mb-4">
+                        <h5>Master in Applied Mathematics and Data Science (2020-2022)</h5>
+                        <p class="text-muted">Joint program between Université Sorbonne Paris Nord, Paris, France and Faculté des Sciences, Fès, Morocco</p>
+                    </div>
+                    
+                    <div class="timeline-item mb-4">
+                        <h5>Bachelor of Science in Applied Mathematics (2017-2020)</h5>
+                        <p class="text-muted">FP Beni-Mellal, Morocco</p>
+                    </div>
+                </div>
+
+                <h3>Teaching Experience</h3>
+                <div class="timeline">
+                    <div class="timeline-item mb-4">
+                        <h5>Course Instructor (June 2025)</h5>
+                        <p class="text-muted">Finite Element Methods for Predoctoral Students — UM6P</p>
+                        <p>One-month intensive course</p>
+                    </div>
+                    
+                    <div class="timeline-item mb-4">
+                        <h5>Mathematics Tutor (2021-2023)</h5>
+                        <p class="text-muted">Freelance — Private mathematics instruction</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <h3>Awards & Honors</h3>
+                {% for award in data.awards %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h6 class="card-title">{{ award.title }}</h6>
+                        <p class="card-text text-muted">{{ award.organization }}</p>
+                        <small class="text-muted">{{ award.year }}</small>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <h3 class="mt-4">Technical Skills</h3>
+                <div class="skills">
+                    <h6>Programming Languages</h6>
+                    <span class="badge bg-primary me-1 mb-1">Python</span>
+                    <span class="badge bg-primary me-1 mb-1">JAX</span>
+                    <span class="badge bg-primary me-1 mb-1">MATLAB</span>
+                    <span class="badge bg-primary me-1 mb-1">Fortran</span>
+                    <span class="badge bg-primary me-1 mb-1">CUDA</span>
+                    
+                    <h6 class="mt-3">Scientific Libraries</h6>
+                    <span class="badge bg-success me-1 mb-1">NumPy</span>
+                    <span class="badge bg-success me-1 mb-1">SciPy</span>
+                    <span class="badge bg-success me-1 mb-1">Matplotlib</span>
+                    
+                    <h6 class="mt-3">Software</h6>
+                    <span class="badge bg-warning me-1 mb-1">FreeFem++</span>
+                    <span class="badge bg-warning me-1 mb-1">Hydrus</span>
+                    <span class="badge bg-warning me-1 mb-1">Paraview</span>
+                    <span class="badge bg-warning me-1 mb-1">ANSYS</span>
+                </div>
+
+                <h3 class="mt-4">Languages</h3>
+                <div class="languages">
+                    <span class="badge bg-secondary me-2 mb-2">Arabic</span>
+                    <span class="badge bg-secondary me-2 mb-2">French</span>
+                    <span class="badge bg-secondary me-2 mb-2">English</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
