@@ -43,5 +43,6 @@ def simulations():
 def download_file(filename):
     return send_from_directory('static/files', filename)
 
+# This is important for Vercel
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=False)
